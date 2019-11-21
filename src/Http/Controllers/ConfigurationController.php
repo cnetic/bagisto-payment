@@ -80,7 +80,9 @@ class ConfigurationController extends Controller
     public function index()
     {
         $slugs = $this->getDefaultConfigSlugs();
-        dd($slugs);
+        request()->route('slug', 'sales');
+        request()->route('slug2', 'paymentmethods');
+        dd($this->configTree);
 
         if (count($slugs)) {
             return redirect()->route('admin.configuration.index', $slugs);
