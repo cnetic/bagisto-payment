@@ -22,7 +22,7 @@ class PaymentServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadRoutesFrom(__DIR__ . '/../Http/routes.php');
-      
+        $this->loadViewsFrom(__DIR__ . '/../Resources/views', 'cnetic-payment');
     }
 
 
@@ -33,5 +33,6 @@ class PaymentServiceProvider extends ServiceProvider
      */
     public function register()
     {
+
     }
 }

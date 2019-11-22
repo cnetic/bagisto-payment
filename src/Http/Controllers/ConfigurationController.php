@@ -51,7 +51,6 @@ class ConfigurationController extends Controller
         $this->_config = request('_config');
 
         $this->prepareConfigTree();
-
     }
 
     /**
@@ -79,17 +78,11 @@ class ConfigurationController extends Controller
      */
     public function index()
     {
-        $slugs = $this->getDefaultConfigSlugs();
-        //dd(request());
-        //request()->route('slug', 'sales');
-        //request()->route('slug2', 'paymentmethods');
 
-        //if (count($slugs)) {
-        //    return redirect()->route('admin.configuration.index', $slugs);
-        //}
-        //dd($this->configTree);
-
+        request()->route()->setParameter('slug', 'sales');
+        request()->route()->setParameter('slug2', 'paymentmethods');
         return view($this->_config['view'], ['config' => $this->configTree]);
+        
     }
 
     /**
