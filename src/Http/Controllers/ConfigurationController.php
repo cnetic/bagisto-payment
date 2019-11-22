@@ -80,13 +80,14 @@ class ConfigurationController extends Controller
     public function index()
     {
         $slugs = $this->getDefaultConfigSlugs();
-        request()->route('slug', 'sales');
-        request()->route('slug2', 'paymentmethods');
-        dd($this->configTree);
+        //dd(request());
+        //request()->route('slug', 'sales');
+        //request()->route('slug2', 'paymentmethods');
 
-        if (count($slugs)) {
-            return redirect()->route('admin.configuration.index', $slugs);
-        }
+        //if (count($slugs)) {
+        //    return redirect()->route('admin.configuration.index', $slugs);
+        //}
+        //dd($this->configTree);
 
         return view($this->_config['view'], ['config' => $this->configTree]);
     }
