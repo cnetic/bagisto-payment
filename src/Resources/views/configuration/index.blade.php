@@ -52,12 +52,13 @@
 
             <div class="page-content">
                 <div class="form-container">
+                   <el-checkbox>Option</el-checkbox>
                     @csrf()
                     @if ($groups = array_get($config->items, request()->route('slug') . '.children.' . request()->route('slug2') . '.children'))
 
                         @foreach ($groups as $key => $item)
 
-                            <accordian :title="'{{ __($item['name']) }}'" :active="true">
+                            <accordian :title="'{{ __($item['name']) }}'" :active="false">
                                 <div slot="body">
                                     <?php if (isset($item['admin_view'])): ?>
                                         @include ($item['admin_view'], ['fields' => $item['fields']])

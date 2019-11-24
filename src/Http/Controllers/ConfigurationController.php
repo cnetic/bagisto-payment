@@ -78,11 +78,12 @@ class ConfigurationController extends Controller
      */
     public function index()
     {
-
         request()->route()->setParameter('slug', 'sales');
         request()->route()->setParameter('slug2', 'paymentmethods');
+        //dd(core()->getConfigData('sales.paymentmethods'));
+        //dd($this->configTree);
+
         return view($this->_config['view'], ['config' => $this->configTree]);
-        
     }
 
     /**
